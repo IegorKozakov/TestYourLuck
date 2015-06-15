@@ -1,10 +1,8 @@
 var regularGame = [['paper', 'afraid of scissors', 'resourses/images/paper.png', 'stone', 'scissors'],['scissors', 'afraid of stones', 'resourses/images/scissors.png', 'paper', 'stone'],['stone', 'afraid of paper sheets', 'resourses/images/stone.png', 'scissors', 'paper']];
 
 var new_game = document.getElementById('new_game');
-console.log(new_game);
 new_game.onclick = function(){
 	var wrapper = document.getElementsByClassName('wrapper')[0];
-	console.log(wrapper);
 	var game_wrap = document.createElement('div');
 	game_wrap.className = 'game-wrap';
 	var caracters_list = document.createElement('ul');

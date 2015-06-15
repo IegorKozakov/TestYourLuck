@@ -43,7 +43,6 @@ function App() {
 					el.className = 'selected';
 				}, 1000);
 				_this.cpuChoice(user);
-				console.log('user array ' + user);
 			} else {
 				var restart = confirm('Do you went play again?');
 				if (restart){
@@ -100,24 +99,18 @@ function App() {
 		document.getElementsByClassName('wrapper')[0].appendChild(compareResultWrap);
 		setTimeout(function(){
 			_this.addButtonSet();
-		},5000);
+		},3000);
 	},
 	this.addButtonSet = function() {
 		var again = document.createElement('span')
 		again.className ='btn';
 		again.innerHTML = 'Play again'
-		var close = document.createElement('span');
-		close.className ='btn';
-		close.innerHTML = 'close';
+		
 		var buttonwrap = document.createElement('div');
 		buttonwrap.appendChild(again);
-		buttonwrap.appendChild(close);
 		document.getElementsByClassName('compare-result-wrap')[0].appendChild(buttonwrap);
 		again.onclick = function(){
 			location.reload();
-		}
-		close.onclick = function(){
-			window.close();
 		}
 	}
 }
