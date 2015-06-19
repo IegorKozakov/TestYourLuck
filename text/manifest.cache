@@ -1,0 +1,11 @@
+# v1
+# this is how you add a comment to the manifest.
+
+CACHE MANIFEST
+index.html
+/resourses/css/style.css
+/resourses/images/paper.png
+/resourses/images/scissors.png
+/resourses/images/stone.png
+/resourses/js/app.js
+/resourses/js/script.js
