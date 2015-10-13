@@ -1,8 +1,7 @@
-var gameCharacter = document.getElementById('game');
-
-/************************
-* Character constructor 
-*************************/
+/*
+* character_constraction.js
+* */
+;var gameCharacter = document.getElementById('game');
 
 function Character(name, descriptions, imageUrl, win, lose) {
 	this.name = name
@@ -22,12 +21,6 @@ function Character(name, descriptions, imageUrl, win, lose) {
 		descriptions.innerHTML = this.descriptions;
 		characterItem.appendChild(characterImage);
 		characterItem.appendChild(descriptions);
-		gameCharacter.appendChild(characterItem)
-	//	this.change(characterItem);
-	}//,
-	/*this.change = function(el) {
-		el.onclick = function(){
-			alert(name);
-		}
-	}*/
+		gameCharacter.appendChild(characterItem);
+	}
 }

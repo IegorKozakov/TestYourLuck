@@ -1,4 +1,33 @@
 /*
+* init application
+* */
+
+
+var baseURL = location.origin,
+	jsonPath = baseURL + '/dest/data/characters.json',
+	container = document.querySelector('#game');
+
+getJSON = function(url) {
+	return new Promise(function(resolve, reject) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('get', url, true);
+		xhr.responseType = 'json';
+		xhr.onload = function() {
+			var status = xhr.status;
+			if (status == 200) {
+				resolve(xhr.response);
+			} else {
+				reject(status);
+			}
+		};
+		xhr.send();
+	});
+};
+
+var App = new Game(container,{
+	'url'	: jsonPath
+});
+/*
 * app.ja Application file
 * */
 ;var Game = Game || {};
@@ -168,4 +197,30 @@ function Game(constainer,param) {
 
 	
 
+}
+/*
+* character_constraction.js
+* */
+;var gameCharacter = document.getElementById('game');
+
+function Character(name, descriptions, imageUrl, win, lose) {
+	this.name = name
+	this.descriptions = descriptions
+	this.imageUrl = imageUrl
+	this.win = win
+	this.lose = lose
+	this.initialize = function () {
+		var characterItem = document.createElement('li');
+		characterItem.id = this.name;
+		characterItem.setAttribute('data-win', this.win);
+		characterItem.setAttribute('data-lose', this.lose);
+		characterItem.setAttribute('data-name', this.name);
+		var characterImage = document.createElement('img');
+		characterImage.src = this.imageUrl;
+		var descriptions = document.createElement('span');
+		descriptions.innerHTML = this.descriptions;
+		characterItem.appendChild(characterImage);
+		characterItem.appendChild(descriptions);
+		gameCharacter.appendChild(characterItem);
+	}
 }

@@ -1,0 +1,25 @@
+[
+    {
+        "name": "paper",
+        "description": "afraid of scissors",
+        "img_url": "resourses/images/paper.png",
+        "win": "stone",
+        "lose": "scissors"
+    },
+
+    {
+        "name": "scissors",
+        "description": "afraid of stones",
+        "img_url": "resourses/images/scissors.png",
+        "win": "paper",
+        "lose": "stone"
+    },
+
+    {
+        "name": "stone",
+        "description": "afraid of paper sheets",
+        "img_url": "resourses/images/stone.png",
+        "win": "scissors",
+        "lose": "paper"
+    }
+]

@@ -1,0 +1,537 @@
+/*****************************
+*****************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  right: 10px; }
+
+footer a {
+  color: #000;
+  text-decoration: none; }
+
+/*****************************
+***** App static styles ******
+*****************************/
+@font-face {
+  font-family: 'Capture';
+  src: url("../fonts/capsmall/capsmall-webfont.eot");
+  src: url("../fonts/capsmall/capsmall-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/capsmall/capsmall-webfont.woff2") format("woff2"), url("../fonts/capsmall/capsmall-webfont.woff") format("woff"), url("../fonts/capsmall/capsmall-webfont.ttf") format("truetype"), url("../fonts/capsmall/capsmall-webfont.svg#capture_smallzregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+html,
+body {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  font-family: 'Capture'; }
+
+body {
+  background: #3f4519;
+  position: relative; }
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font: 6vw 'Capture';
+  color: #9AA269;
+  padding: 3vw 0 2vw; }
+
+.wrapper {
+  padding: 0 20px;
+  height: 100%; }
+
+.btn {
+  display: block;
+  background: #3E1725;
+  cursor: pointer;
+  border: 1px solid #280713;
+  border-radius: 5px;
+  font-size: 2.5vw;
+  text-transform: uppercase;
+  padding: 1.2vw 2.5vw;
+  color: #9AA269;
+  text-shadow: 2px 2px 3px #000;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  text-align: center;
+  width: 19vw;
+  margin: 0 auto; }
+
+.btn:hover {
+  background: #2F1820;
+  text-shadow: -2px -2px 3px #000;
+  color: #858D5D; }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s; }
+
+.overlay.active {
+  display: block;
+  background: rgba(70, 7, 19, 0.7);
+  opacity: .7;
+  visibility: visible;
+  z-index: 998; }
+
+#new_game {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.game-wrap {
+  max-width: 90%;
+  max-width: 830px;
+  margin: 0 auto; }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+#game {
+  margin: 0 -1%;
+  position: relative;
+  opacity: 0;
+  -webkit-animation: fadeIn 1s alternate;
+  -moz-animation: fadeIn 1s alternate;
+  -o-animation: fadeIn 1s alternate;
+  animation: fadeIn 1s alternate;
+  animation-fill-mode: forwards; }
+
+#game li {
+  width: 31.3%;
+  margin: 0 1%;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  opacity: 1;
+  overflow: hidden;
+  z-index: 2;
+  border-radius: 5px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s; }
+
+#game li:hover {
+  box-shadow: 0 0 5px #cae230; }
+
+#game img {
+  width: 100%; }
+
+#game .user > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  font-size: 0;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #9AA269;
+  background: rgba(70, 7, 19, 0.7);
+  -webkit-transition: .3s ease-in;
+  -o-transition: .3s ease-in;
+  transition: .3s ease-in; }
+
+#game .user:hover span {
+  opacity: 1; }
+
+.description {
+  padding: 20px;
+  max-width: 100%;
+  font-size: 4.5vw;
+  display: inline-block;
+  vertical-align: middle;
+  text-shadow: 2px 2px 3px #000; }
+
+#game .user > span:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%; }
+
+#game.game-start .cpu {
+  opacity: 0; }
+
+#game.game-start .cpu {
+  width: 37%; }
+
+#game .hide_description span,
+.selected span,
+.cpu span {
+  display: none; }
+
+/*****************************
+******* App Start Game *******
+*****************************/
+#game.game-start li:hover {
+  box-shadow: none; }
+
+/* hide not selected characters */
+@-webkit-keyframes hideNotSelectedCharacters {
+  0% {
+    opacity: 1;
+    width: 31.3%;
+    margin: 0 1%; }
+  50% {
+    opacity: 0;
+    width: 31.3%;
+    margin: 0 1%; }
+  100% {
+    opacity: 0;
+    width: 0;
+    margin: 0; } }
+
+@-moz-keyframes hideNotSelectedCharacters {
+  0% {
+    opacity: 1;
+    width: 31.3%;
+    margin: 0 1%; }
+  50% {
+    opacity: 0;
+    width: 31.3%;
+    margin: 0 1%; }
+  100% {
+    opacity: 0;
+    width: 0;
+    margin: 0; } }
+
+@-o-keyframes hideNotSelectedCharacters {
+  0% {
+    opacity: 1;
+    width: 31.3%;
+    margin: 0 1%; }
+  50% {
+    opacity: 0;
+    width: 31.3%;
+    margin: 0 1%; }
+  100% {
+    opacity: 0;
+    width: 0;
+    margin: 0; } }
+
+@keyframes hideNotSelectedCharacters {
+  0% {
+    opacity: 1;
+    width: 31.3%;
+    margin: 0 1%; }
+  50% {
+    opacity: 0;
+    width: 31.3%;
+    margin: 0 1%; }
+  100% {
+    opacity: 0;
+    width: 0;
+    margin: 0; } }
+
+#game.game-start li.user {
+  -webkit-animation: hideNotSelectedCharacters 1s alternate;
+  -moz-animation: hideNotSelectedCharacters 1s alternate;
+  -o-animation: hideNotSelectedCharacters 1s alternate;
+  animation: hideNotSelectedCharacters 1s alternate;
+  animation-fill-mode: forwards; }
+
+/* END hide not selected characters */
+/* zooming selected character */
+@-webkit-keyframes zoomingSelectedCharacter {
+  0% {
+    width: 33.3%; }
+  100% {
+    width: 36%; } }
+
+@-moz-keyframes zoomingSelectedCharacter {
+  0% {
+    width: 33.3%; }
+  100% {
+    width: 36%; } }
+
+@-o-keyframes zoomingSelectedCharacter {
+  0% {
+    width: 33.3%; }
+  100% {
+    width: 36%; } }
+
+@keyframes zoomingSelectedCharacter {
+  0% {
+    width: 33.3%; }
+  100% {
+    width: 36%; } }
+
+#game.game-start .selected {
+  -webkit-animation: zoomingSelectedCharacter 0.5s alternate;
+  -moz-animation: zoomingSelectedCharacter 0.5s alternate;
+  -o-animation: zoomingSelectedCharacter 0.5s alternate;
+  animation: zoomingSelectedCharacter 0.5s alternate;
+  animation-fill-mode: forwards; }
+
+/* zooming selected character */
+/* show VS title */
+@-webkit-keyframes showVsTitle {
+  0% {
+    opacity: 0;
+    font-size: 300px; }
+  100% {
+    opacity: 1;
+    font-size: 7vw; } }
+
+@-moz-keyframes showVsTitle {
+  0% {
+    opacity: 0;
+    font-size: 300px; }
+  100% {
+    opacity: 1;
+    font-size: 7vw; } }
+
+@-o-keyframes showVsTitle {
+  0% {
+    opacity: 0;
+    font-size: 300px; }
+  100% {
+    opacity: 1;
+    font-size: 7vw; } }
+
+@keyframes showVsTitle {
+  0% {
+    opacity: 0;
+    font-size: 300px; }
+  100% {
+    opacity: 1;
+    font-size: 7vw; } }
+
+#game.game-start .vs {
+  width: 26%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  text-align: center;
+  color: #FF0000; }
+
+#game.game-start .vs:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%; }
+
+#game.game-start .vs span {
+  text-transform: uppercase;
+  font-size: 36px;
+  -webkit-animation: showVsTitle 1s alternate;
+  -moz-animation: showVsTitle 1s alternate;
+  -o-animation: showVsTitle 1s alternate;
+  animation: showVsTitle 1s alternate;
+  animation-fill-mode: forwards; }
+
+/* END show VS title */
+/* Show CPU Character */
+@-webkit-keyframes showCpuCharacter {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-moz-keyframes showCpuCharacter {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-o-keyframes showCpuCharacter {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes showCpuCharacter {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+#game.game-start .cpu {
+  -webkit-animation: showCpuCharacter 0.5s alternate;
+  -moz-animation: showCpuCharacter 0.5s alternate;
+  -o-animation: showCpuCharacter 0.5s alternate;
+  animation: showCpuCharacter 0.5s alternate;
+  animation-fill-mode: forwards;
+  float: right; }
+
+/* End Show CPU Character */
+/* Show Game Result  */
+@-webkit-keyframes showGameResult {
+  0% {
+    opacity: 0;
+    font-size: 0; }
+  100% {
+    opacity: 1;
+    font-size: 12vw; } }
+
+@-moz-keyframes showGameResult {
+  0% {
+    opacity: 0;
+    font-size: 0; }
+  100% {
+    opacity: 1;
+    font-size: 12vw; } }
+
+@-o-keyframes showGameResult {
+  0% {
+    opacity: 0;
+    font-size: 0; }
+  100% {
+    opacity: 1;
+    font-size: 12vw; } }
+
+@keyframes showGameResult {
+  0% {
+    opacity: 0;
+    font-size: 0; }
+  100% {
+    opacity: 1;
+    font-size: 12vw; } }
+
+.compare-result-wrap {
+  position: absolute;
+  -webkit-animation: showGameResult 2s alternate;
+  -moz-animation: showGameResult 2s alternate;
+  -o-animation: showGameResult 2s alternate;
+  animation: showGameResult 2s alternate;
+  animation-fill-mode: forwards;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+  width: 100%;
+  font-size: 0;
+  text-align: center; }
+
+.wrapper .result {
+  color: #9AA269;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s; }
+
+.wrapper .result.win {
+  color: #A6F222; }
+
+.wrapper .result.lose {
+  color: #FF0000; }
+
+.compare-result-wrap span {
+  margin: 2vw;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0px 0px 10px #9AA269; }
+
+/* Show Game Result  */
+@media (min-width: 800px) {
+  .description {
+    font-size: 50px; } }
+
+@media only screen and (orientation: portrait) {
+  .wrapper {
+    height: 100vw;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg); } }
+
+@media only screen and (orientation: landscape) {
+  .wrapper {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg); } }
