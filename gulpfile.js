@@ -45,8 +45,7 @@ gulp.task('combine-css', ['scss'], function() {
 gulp.task('build-app-js', function () {
    return gulp.src([
        path.js.app + 'script.js',
-       path.js.app + 'app.js',
-       path.js.app + 'character_constructor.js'
+       path.js.app + 'app.js'
    ])
        .pipe(concat('app.js'))
        .pipe(gulp.dest(path.js.dest));

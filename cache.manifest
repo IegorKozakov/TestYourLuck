@@ -1,0 +1,15 @@
+CACHE MANIFEST
+
+index.html
+favicon.ico
+dest/css/main.css
+dest/fonts/capsmall/capsmall-webfont.eot
+dest/fonts/capsmall/capsmall-webfont.svg
+dest/fonts/capsmall/capsmall-webfont.ttf
+dest/fonts/capsmall/capsmall-webfont.woff
+dest/fonts/capsmall/capsmall-webfont.woff2
+dest/js/app.js
+dest/img/paper.png
+dest/img/scissors.png
+dest/img/stone.png
+dest/data/characters.json
