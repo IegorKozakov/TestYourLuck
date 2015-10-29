@@ -20,7 +20,7 @@ getJSON = function(url) {
 				reject(status);
 			}
 		};
-		xhr.send();
+		//xhr.send();
 	});
 };
 
