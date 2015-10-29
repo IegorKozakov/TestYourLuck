@@ -4,7 +4,7 @@
 
 
 var baseURL = location.origin,
-	jsonPath = baseURL + '/dest/data/characters.json',
+	jsonPath = baseURL + '/testyourluck/dest/data/characters.json',
 	container = document.querySelector('#game');
 
 getJSON = function(url) {
