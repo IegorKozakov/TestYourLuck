@@ -3,7 +3,7 @@
 * */
 
 
-var baseURL = location.hostname + location.pathname,
+var baseURL = location.origin + location.pathname,
 	jsonPath = baseURL + 'dest/data/characters.json',
 	container = document.querySelector('#game');
 
@@ -20,7 +20,7 @@ getJSON = function(url) {
 				reject(status);
 			}
 		};
-		//xhr.send();
+		xhr.send();
 	});
 };
 
