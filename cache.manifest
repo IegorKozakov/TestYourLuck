@@ -2,14 +2,14 @@ CACHE MANIFEST
 
 index.html
 favicon.ico
-resourses/css/style.css
-resourses/images/paper.png
-resourses/images/scissors.png
-resourses/images/stone.png
-resourses/js/app.js
-resourses/js/script.js
-resourses/font/capsmall/capsmall-webfont.eot
-resourses/font/capsmall/capsmall-webfont.svg
-resourses/font/capsmall/capsmall-webfont.ttf
-resourses/font/capsmall/capsmall-webfont.woff
-resourses/font/capsmall/capsmall-webfont.woff2
+dest/css/main.css
+dest/fonts/capsmall/capsmall-webfont.eot
+dest/fonts/capsmall/capsmall-webfont.svg
+dest/fonts/capsmall/capsmall-webfont.ttf
+dest/fonts/capsmall/capsmall-webfont.woff
+dest/fonts/capsmall/capsmall-webfont.woff2
+dest/js/app.js
+dest/img/paper.png
+dest/img/scissors.png
+dest/img/stone.png
+dest/data/characters.json

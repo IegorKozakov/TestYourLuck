@@ -1,0 +1,68 @@
+$color: #000;
+
+.cf {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  &{
+    zoom: 1;
+  }
+}
+
+/* Colors */
+
+$green             : #3f4519;
+$light_green       : #9AA269;
+$light_green_2     : #858D5D;
+$black             : #000;
+$violet            : #3E1725;
+$dark_violet       : #2F1820;
+$extra_dark_violet : #280713;
+$shadow_yellow     : #cae230;
+$red               : #FF0000;
+$extra_green       : #A6F222;
+
+/* font */
+
+@font-face {
+  font-family: 'Capture';
+  src: url('../fonts/capsmall/capsmall-webfont.eot');
+  src: url('../fonts/capsmall/capsmall-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/capsmall/capsmall-webfont.woff2') format('woff2'),
+  url('../fonts/capsmall/capsmall-webfont.woff') format('woff'),
+  url('../fonts/capsmall/capsmall-webfont.ttf') format('truetype'),
+  url('../fonts/capsmall/capsmall-webfont.svg#capture_smallzregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Mixins */
+
+@mixin transform($param) {
+  -webkit-transform: $param;
+  -moz-transform:    $param;
+  -ms-transform:     $param;
+  -o-transform:      $param;
+  transform:         $param;
+}
+
+@mixin transition($param:.3s){
+  -webkit-transition: $param;
+  -moz-transition:    $param;
+  -ms-transition:     $param;
+  -o-transition:      $param;
+  transition:         $param;
+}
+
+/* Media Queries */
+
+@mixin media($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}

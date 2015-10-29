@@ -1,0 +1,323 @@
+/*****************************
+***** App static styles ******
+*****************************/
+
+html,
+body {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  font-family: 'Capture', sans-serif;
+}
+body {
+  background: $green;
+  position: relative;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font: 72px 'Capture';
+  color: $light_green;
+  padding: 40px 0 25px;
+}
+.btn {
+  display: block;
+  background: $violet;
+  cursor: pointer;
+  border: 1px solid $extra_dark_violet;
+  border-radius: 5px;
+  font-size: 25px;
+  text-transform: uppercase;
+  padding: 20px 35px;
+  color: $light_green;
+  text-shadow: 2px 2px 3px $black;
+  transition: .3s;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 45%;
+  box-shadow: 0px 0px 10px #9AA269;
+  &:hover {
+    background: $dark_violet;
+    text-shadow: -2px -2px 3px $black;
+    color: $light_green_2;
+  }
+}
+
+
+.new_game {
+  float: left;
+}
+
+.view_results {
+  float: right;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+
+  @include transition;
+}
+
+.overlay.active{
+  display: block;
+  background: rgba(70,7,19,.7);
+  opacity: .7;
+  visibility: visible;
+  z-index: 998;
+}
+
+.button_set {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 830px;
+  z-index: 9;
+
+  @include transform(translate(-50%, -50%));
+  @extend .cf;
+}
+.game-wrap {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+
+#game {
+  opacity: 0;
+  width: 830px;
+  max-width: 90%;
+  margin: 0 auto;
+  animation:fadeIn 1s alternate;
+  animation-fill-mode: forwards;
+
+  li {
+    width: 31.3%;
+    margin: 0 1%;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    position: relative;
+    left: 0	;
+    opacity: 1;
+    overflow: hidden;
+    z-index: 2;
+    border-radius: 5px;
+    transition: .3s;
+    &:hover {
+      box-shadow: 0 0 5px $shadow_yellow;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .user {
+    & > span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      font-size: 0;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: $light_green;
+      background: rgba(70,7,19,.7);
+
+        @include transition(.3s ease-in);
+      }
+
+      &:hover span {
+          opacity: 1;
+        }
+
+      &> span:before {
+          content: "";
+          display: inline-block;
+          vertical-align: middle;
+          width: 0;
+          height: 100%;
+        }
+    }
+    .cpu {
+      width: 37%;
+      margin: 0 1% 0 20%;
+    }
+  }
+
+  .description {
+    padding: 20px;
+    max-width: 100%;
+    font-size: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    text-shadow: 2px 2px 3px $black;
+
+    @include media(970px) {
+      font-size: 35px;
+    }
+
+    @include media(700px) {
+      font-size: 25px;
+    }
+  }
+
+  .character_list {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+.selected {
+  span {
+    display: none;
+  }
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+box-shadow: none !important;
+}
+
+
+/*****************************
+******* App Start Game *******
+*****************************/
+/* zooming selected character */
+
+@keyframes zoomingSelectedCharacter {
+  0%   { width: 33.3%;}
+  100% { width: 36%;}
+}
+#game.game-start .selected {
+animation: zoomingSelectedCharacter .5s alternate;
+  animation-fill-mode: forwards;
+}
+/* zooming selected character */
+/* show VS title */
+@keyframes showVsTitle {
+  0%   { zoom: 15}
+  100% { zoom: 0}
+}
+
+#game .vs {
+  zoom: 15;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: $red;
+  z-index: 2;
+  text-transform: uppercase;
+  font-size: 36px;
+  transition: 1s;
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+  }
+}
+
+/* Show Game Result  */
+
+.compare-result-wrap {
+  position: absolute;
+  background: rgba(70,7,19,.5);
+  transition: .5s;
+  top: 0;
+  left: 0;
+  z-index: 8;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  text-align: center;
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+  }
+  .compare-result-inner {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .result {
+    display: inline-block;
+    vertical-align: middle;
+    color: $light_green;
+    font: 110px 'Capture';
+    margin: 0 0 75px;
+    text-transform: uppercase;
+
+    &.win {
+      color: $extra_green;
+    }
+
+    &.lose {
+      color: $red;
+    }
+  }
+  .button_set{
+    position: static;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+.results_wrap {
+  padding: 5% 0 0;
+  text-align: center;
+  font-size: 50px;
+  text-transform: uppercase;
+  margin: 0 auto;
+
+  .result_item {
+    color: $light_green;
+    text-align: left;
+    display: block;
+    border-bottom: 2px solid $extra_dark_violet;
+    margin: 0 0 15px;
+    padding: 0 15px 15px;
+    text-shadow: 2px 2px 3px $violet;
+  }
+
+  .count {
+    float: right;
+    width: 100px;
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .total {
+    border: none;
+  }
+
+  .new_game {
+    float: none;
+    margin:0;
+    display: inline-block;
+    max-width: 225px;
+  }
+}
